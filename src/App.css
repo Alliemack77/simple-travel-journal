@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
+:root {
+  --clr-primary:hsl(250, 18%, 19%);
+  --clr-secondary: hsl(254, 6%, 58%);
+  --clr-secondary-light: rgba(144, 141, 154, 0.35);
+  --clr-accent: hsl(0, 89%, 66%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  --ff-primary: 'Inter', sans-serif;
+
+  --fs-300: .75rem;
+  --fs-400: .875rem;
+  --fs-800: 2rem;
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --margin: 0 0 2rem 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  line-height: 1.5;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Utilities */
+.container {
+  --padding: 1rem;
+  --max-width: 34.37rem;
+
+  width: min(100% - var(--padding), var(--max-width));
+  margin-inline: auto;
+  /* border: solid 2px red; */
+}
+
+.text-primary { color: var(--clr-primary) }
+.text-secondary { color: var(--clr-secondary) }
+.text-accent { color: var(--clr-accent) }
+.text-white { color: var(--clr-white) }
+
+.fs-300 { font-size: var(--fs-300);}
+.fs-400 { font-size: var(--fs-400); }
+.fs-800 { font-size: var(--fs-800); }
+
+.fw-300 { font-weight: var(--fw-300); }
+.fw-400 { font-weight: var(--fw-400); }
+.fw-500 { font-weight: var(--fw-500); }
+.fw-700 { font-weight: var(--fw-700); }
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
+  gap: 2rem;
+}
+
+.align-center {
   align-items: center;
+}
+
+.justify-center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.direction-column {
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Header */
+.header {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--clr-accent);
+  
+}
+
+.header svg {
+  color: var(--clr-white);
+  font-size: 1.5rem;
+}
+
+
+/* Articles */
+.articles {
+  padding: 2rem 0;
+}
+
+
+/* Article */
+.article {
+  padding: 1rem 0 2rem;
+  border-bottom: solid 1px var(--clr-secondary-light);
+
+}
+
+article svg {
+  color: var(--clr-accent)
+}
+
+.article img {
+  --margin: 0 0 1rem;
+  margin: var(--margin);
+  border-radius: 30px;
+}
+
+.title {
+  --margin: 0 0 1.25rem;
+  margin: var(--margin);
+}
+
+.date {
+  --margin: 0 0 .55rem;
+  margin: var(--margin);
+}
+
+
+@media (min-width: 530px) {
+  .article {
+    display: flex;
+    gap: 1.25rem;
+    flex-direction: row;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .article img {
+    max-width: 250px;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
   }
 }
+
+
